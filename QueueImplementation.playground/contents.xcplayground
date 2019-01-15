@@ -2,9 +2,11 @@
 <playground version='6.0' target-platform='ios' executeOnSourceChanges='false'>
     <pages>
         <page name='MatrixRotation'/>
-        <page name='Untitled Page'/>
+        <page name='OpenLockProblem'/>
         <page name='QueueImplementation'/>
         <page name='Tree+BFS'/>
         <page name='BFS'/>
+        <page name='PostFix'/>
+        <page name='AddTwoNumbers'/>
     </pages>
 </playground>
