@@ -196,4 +196,5 @@ func warmerDay(_ array: [Int] ) -> [Int] {
     return result
 }
 
-warmerDay(temperatures)
+//warmerDay(temperatures)
+

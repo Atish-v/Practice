@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' executeOnSourceChanges='false'>
+<playground version='6.0' target-platform='ios'>
     <pages>
         <page name='MatrixRotation'/>
         <page name='OpenLockProblem'/>
@@ -8,5 +8,6 @@
         <page name='BFS'/>
         <page name='PostFix'/>
         <page name='AddTwoNumbers'/>
+        <page name='Recursion'/>
     </pages>
 </playground>

@@ -37,5 +37,9 @@ import Foundation
 
 
 
+func add<T: Sequence>(a: T, b: T) {
+    
+}
 
+add(a: [1,2,3,4,5], b: "Atish")
 

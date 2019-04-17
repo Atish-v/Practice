@@ -35,19 +35,25 @@ first4.children = [first9]
 func breadthFirstSearch(root: Node) -> Int {
     let myQueue = CircularQueue<Node>(size: 20)
     myQueue.enQueue(root)
+    var result = [[Int]]()
     var step = 0
     while myQueue.isEmpty() == false {
         step = step + 1
-        for _ in 0..<myQueue.count() {
+        var temp = [Int]()
+        let count = myQueue.count()
+        for _ in 0..<count {
             if let first = myQueue.front() {
+                temp.append(first.value)
                 myQueue.deQueue()
                 for child in first.children ?? [] {
                     myQueue.enQueue(child)
                 }
             }
         }
+        result.append(temp)
     }
     
+    print(result)
     return step
 }
 
