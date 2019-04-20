@@ -197,30 +197,76 @@ func row(at index: Int) -> [Int] {
 }
 
 
+//find the minimum total on path from top to bottom. element below it or adjacent in the below row can only be included in path
 //            1
 //        2       3
 //    4       5       6
 // 7      8       1       10
 
-func minimumTotal(_ triangle: [[Int]]) -> Int {
-    var minimum: Int = 0
-    for i in 1..<triangle.count - 1 {
-        if i == 0 {
-            minimum = triangle[0][0]
-        }
-        let nextRow = triangle[i + 1]
-        minimum += min(nextRow[i], nextRow[i + 1] )
+func minimumTotal(_ triangle: inout [[Int]]) -> Int {
+    guard triangle.isEmpty == false else {
+        return 0
     }
-    
-    return minimum
+    let count = triangle.count
+    for i in (1...(count - 1)).reversed() {
+        for j in 0..<i{
+            if triangle[i][j] < triangle[i][j+1] {
+                triangle[i - 1][j] += triangle[i][j]
+            } else {
+                triangle[i - 1][j] += triangle[i][j + 1]
+            }
+        }
+    }
+    return triangle[0][0]
 }
 
 
 
 //[0, 0, 0] [0, 0, 1] [0, 1, 1] [0, 1, 2]
+var triangle = [
+[1],
+[3, 2],
+[5, 4, 6],
+]
 
-[1]
-[3, 2]
+let sum = minimumTotal(&triangle)
+print(triangle)
 
-2
-[5, 4, 6]
+//{1, 2, 3, 4, 5}
+
+
+
+[ 1, 2, 3, 4, 5, 6,]
+
+[1, 2, 3]
+
+
+(0-3+6)%6
+
+
+func leftRotateArray(_ array: inout [Int],by position: Int) {
+    let count = array.count
+    var temp = [Int]()
+    temp.reserveCapacity(position)
+    for i in 0..<count {
+        if i < position {
+            temp.append(array[i])
+        } else {
+            array[i-position] = array[i]
+        }
+    }
+    
+    var tempIndex = (0 - position + count) % count
+    
+    for i in 0..<temp.count {
+        array[tempIndex] = temp[i]
+        tempIndex += 1
+    }
+    
+}
+
+
+var array = [1,2, 3, 4, 5, 6]
+
+leftRotateArray(&array, by: 5)
+//print(array)
