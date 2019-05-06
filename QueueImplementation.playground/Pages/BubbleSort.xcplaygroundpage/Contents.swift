@@ -17,7 +17,6 @@ func bubbleSort(_ a: inout [Int]) {
                 a[j + 1] = temp
             }
         }
-        
     }
 }
 

@@ -9,7 +9,8 @@
         <page name='PostFix'/>
         <page name='AddTwoNumbers'/>
         <page name='Recursion'/>
-        <page name='Merge'/>
+        <page name='MergeSort'/>
         <page name='BubbleSort'/>
+        <page name='QuickSort'/>
     </pages>
 </playground>

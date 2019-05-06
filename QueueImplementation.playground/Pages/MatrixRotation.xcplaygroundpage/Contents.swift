@@ -74,3 +74,77 @@ rotate(&matrix)
 [1, 4, 7]
 [2, 5, 8]
 [3, 6, 9]
+
+//[26* 26*26    26* 26*26    26*26    26   1]
+
+
+
+
+func titleToNumber(_ s: String) -> Int {
+ 
+    let dict = createDict()
+
+    let multiplierArray = createMultiplierArray(count: s.count)
+    
+    let total = runningTotal(multiplierArray, characters: Array(s), dict: dict)
+    
+    return total
+}
+
+func createDict() -> [Character: Int]{
+    let letters: [Character] = ["A", "B","C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    var dict: [Character: Int] = [:]
+    for (index, c) in letters.enumerated() {
+        dict[c] = index + 1
+    }
+    
+    return dict
+}
+
+func createMultiplierArray(count: Int) -> [Int] {
+    var array = [Int].init(repeating: 0, count: count)
+    for i in (0..<count).reversed() {
+        if i == (count - 1) {
+            array[i] = 1
+        } else {
+            array[i] = array[i - 1] * 26
+        }
+    }
+    
+    return array
+}
+
+func runningTotal(_ multipliers: [Int], characters: [Character], dict: [Character: Int]) -> Int {
+    guard multipliers.count == characters.count else { return 0 }
+    var total: Int = 0
+    for i in 0..<characters.count {
+        total += multipliers[i] *  dict[characters[i]]!
+    }
+    
+    return total
+}
+
+
+func trailingZeroes(_ n: Int) -> Int {
+    var num = calculateFactorial(CLongLong(n))
+    var numberOfZeros: Int = 0
+    while (num % 10) == 0 {
+        num = num / 10
+        numberOfZeros += 1
+    }
+    
+    return numberOfZeros
+}
+
+func calculateFactorial(_ num: CLongLong) -> CLongLong {
+    if num == 1 {
+        return 1
+    }
+ 
+    
+    return calculateFactorial(num - 1) * num
+}
+
+trailingZeroes(25)
+
+calculateFactorial(20)

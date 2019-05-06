@@ -47,6 +47,7 @@ result.reserveCapacity(10)
 
 
 
+
 func mergeSort(_ a: inout [Int]) {
     let aCount = a.count
     if aCount == 1 {
